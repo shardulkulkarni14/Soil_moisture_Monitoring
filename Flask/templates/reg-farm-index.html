@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>FormWizard_v8</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="author" content="colorlib.com">
+
+		<!-- MATERIAL DESIGN ICONIC FONT -->
+        <link rel="stylesheet" href="static/fonts/material-design-iconic-font/css/material-design-iconic-font.css">
+
+		<!-- DATE-PICKER -->
+        <link rel="stylesheet" href="static/vendor/date-picker/css/datepicker.min.css">
+
+		<!-- STYLE CSS -->
+		<link rel="stylesheet" href="static/css/reg-farm-style.css">
+	</head>
+	<body style="  background: url(static/images/banner2.jpg);">
+		<div class="wrapper">
+            <form method="POST" id="wizard" onSubmit = "return checkPassword(this)">
+        		<!-- SECTION 1 -->
+                <h4></h4>
+                <section>
+                    <h3>Basic details</h3>
+                	<div class="form-row">
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-account"></i>
+                            <input type="text" name="Fname" class="form-control" placeholder="First Name">
+                        </div>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-account"></i>
+                            <input type="text" name="Lname" class="form-control" placeholder="Last Name">
+                        </div>
+                       <!--  <div class="form-holder">
+                            <i class="zmdi zmdi-account"></i>
+                            <input type="text" name="Uname" class="form-control" placeholder="User Name">
+                        </div> -->
+                	</div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-map"></i>
+                                <input type="text" name="Country" class="form-control" placeholder="Country">
+                            </div>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-pin-drop"></i>
+                                <input type="text" name="State" class="form-control" placeholder="State">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-pin"></i>
+                                <input type="text" name="City" class="form-control" placeholder="City">
+                            </div>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-pin-drop"></i>
+                                <input type="number" name="Pincode" class="form-control" placeholder="Pincode">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-smartphone-android"></i>
+                            <input type="numeric" name="Pnumber" class="form-control" placeholder="Phone Number">
+                        </div>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-account"></i>
+                            <input type="number" name="Age" class="form-control" placeholder="Age">
+                        </div>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-account"></i>
+                            <select name="gender" class="form-control" placeholder="Gender">
+                                <option value="Male" >Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-holder" >
+                            <input type="text" name="Addfarm" class="form-control" placeholder="Adddress of Farm">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-holder">
+                            <input type="number" name="Landholding" class="form-control" placeholder="Landholding">
+                        </div>
+                        <div class="form-holder">
+                            <select class="form-control" name="Area">
+                                <option value="Acre">Acre</option>
+                                <option value="Gunta">Gunta</option>
+                            </select>
+                        </div>
+                    </div>
+
+                </section>
+
+				<!-- SECTION 2 -->
+                <h4></h4>
+                <section>
+                	<h3>Set Password</h3>
+                    <div class="form-row">
+                        <div class="form-holder w-100">
+                            <input type="password" name="Passw" class="form-control" placeholder="New Password">
+                            <i class="zmdi zmdi-lock-open"></i>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-holder w-100">
+                            <input type="password" name="CPassw" class="form-control" placeholder="Confirm New Password">
+                            <i class="zmdi zmdi-lock-open"></i>
+                        </div>
+                    </div>
+                    <script>
+          
+            // Function to check Whether both passwords
+            // is same or not.
+                         function checkPassword(form) {
+                            password1 = form.Passw.value;
+                            password2 = form.CPassw.value;
+  
+                            // If password not entered
+                            if (password1 == '')
+                                alert ("Please enter Password");
+                      
+                            // If confirm password not entered
+                            else if (password2 == '')
+                                alert ("Please enter confirm password");
+                      
+                            // If Not same return False.    
+                            else if (password1 != password2) {
+                                alert ("\nPassword did not match: Please try again...")
+                                return false;
+                            }
+  
+                            // If same return True.
+                            else{
+                                // alert("Password Match: Welcome to GeeksforGeeks!")
+                                return true;
+                            }
+                        }
+                    </script>
+                </section>
+
+
+                <!-- SECTION 4 -->
+                <h4></h4>
+                <section>
+                    <center><button type="submit" name="submit" value="submit" class="button_confirm" style=" border: none;display: inline-flex;height: 62px;width: 200px;align-items: center;color: #fff;cursor: pointer;background: #8eb852;text-transform: uppercase;justify-content: center;letter-spacing: 1px;font-size: 15px;border-radius: 3px;">Click to confirm the details</button></center>
+                    <center><img src="static/images/success.png" style="padding-top: 50px"></center>
+                </section>
+            </form>
+		</div>
+
+		<script src="static/reg-farm-js/jquery-3.3.1.min.js"></script>
+		
+		<!-- JQUERY STEP -->
+		<script src="static/reg-farm-js/jquery.steps.js"></script>
+
+		<script src="static/reg-farm-js/main.js"></script>
+
+<!-- Template created and distributed by Colorlib -->
+</body>
+</html>
